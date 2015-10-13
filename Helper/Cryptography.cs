@@ -17,7 +17,12 @@ namespace Helper
             {
                 hash = md5.ComputeHash(Encoding.ASCII.GetBytes(input));
             }
-            return BitConverter.ToString(hash);
+            var str = string.Empty;
+            for (int i = 0; i < hash.Length; i++)
+            {
+                str += hash[i].ToString("X2");
+            }
+            return str;
 
         }
     }

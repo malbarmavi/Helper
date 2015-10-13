@@ -5,6 +5,5 @@ E:\projects\csharphelper\Helper\Helper\obj\Debug\Helper.dll
 E:\projects\csharphelper\Helper\Helper\obj\Debug\Helper.pdb
 D:\git\helper\Helper\bin\Debug\Helper.dll
 D:\git\helper\Helper\bin\Debug\Helper.pdb
-D:\git\helper\Helper\obj\Debug\Helper.csprojResolveAssemblyReference.cache
 D:\git\helper\Helper\obj\Debug\Helper.dll
 D:\git\helper\Helper\obj\Debug\Helper.pdb
