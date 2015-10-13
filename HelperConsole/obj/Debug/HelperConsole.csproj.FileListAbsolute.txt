@@ -1,0 +1,16 @@
+E:\projects\csharphelper\Helper\HelperConsole\bin\Debug\HelperConsole.exe.config
+E:\projects\csharphelper\Helper\HelperConsole\bin\Debug\HelperConsole.exe
+E:\projects\csharphelper\Helper\HelperConsole\bin\Debug\HelperConsole.pdb
+E:\projects\csharphelper\Helper\HelperConsole\bin\Debug\Helper.dll
+E:\projects\csharphelper\Helper\HelperConsole\bin\Debug\Helper.pdb
+E:\projects\csharphelper\Helper\HelperConsole\obj\Debug\HelperConsole.csprojResolveAssemblyReference.cache
+E:\projects\csharphelper\Helper\HelperConsole\obj\Debug\HelperConsole.exe
+E:\projects\csharphelper\Helper\HelperConsole\obj\Debug\HelperConsole.pdb
+D:\git\helper\HelperConsole\bin\Debug\HelperConsole.exe.config
+D:\git\helper\HelperConsole\obj\Debug\HelperConsole.exe
+D:\git\helper\HelperConsole\obj\Debug\HelperConsole.pdb
+D:\git\helper\HelperConsole\bin\Debug\HelperConsole.exe
+D:\git\helper\HelperConsole\bin\Debug\HelperConsole.pdb
+D:\git\helper\HelperConsole\bin\Debug\Helper.dll
+D:\git\helper\HelperConsole\bin\Debug\Helper.pdb
+D:\git\helper\HelperConsole\obj\Debug\HelperConsole.csprojResolveAssemblyReference.cache
