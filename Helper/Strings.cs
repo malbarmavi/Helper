@@ -6,8 +6,15 @@ using System.Threading.Tasks;
 
 namespace Helper
 {
+
+    using Objects;
     public static class Strings
     {
+       
+        private static string alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        private static string number = "0123456789";
+        private static string symble = @"!@#$%^&*()_+-=*/?{}<>";
+
         public static bool IsNullOrEmptyOrWhiteSpacce(this string value)
         {
             var result = false;
@@ -24,15 +31,65 @@ namespace Helper
             }
             return result;
         }
-        private static string stringValue = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        public static string GetRandomString(int length=25)
+        public static string GetRandomString(int length, RandomOptions options)
         {
-            var sb = new StringBuilder();
-            for(int i =0;i<=length;i++)
+            var result = String.Empty;
+
+            if (options.Apphabet == true)
             {
-                sb.Append(stringValue[Numbers.getRandomNumber(0, 25)]);
+                result = alphabet;
+            }
+
+            if (options.Symble == true)
+            {
+                result += symble;
+            }
+
+            if (options.Number == true)
+            {
+                result += number;
+            }
+            var stringCounts = result.Length;
+            var sb = new StringBuilder();
+            int index = Numbers.GetRandomNumber(0, stringCounts);
+            for (int i = 0; i <= length; i++)
+            {
+                index = Numbers.GetRandomNumber(0, stringCounts);
+                sb.Append(Case(result[index], options.LetterCase));
             }
             return sb.ToString();
         }
+        public static string GetRandomString(int length = 26)
+        {
+            return GetRandomString(length, new RandomOptions { Apphabet = true, Number = false, Symble = false, LetterCase = StringCase.Both });
+        }
+
+
+        private static string Case(char value, StringCase option)
+        {
+            switch (option)
+            {
+                case Helper.StringCase.LowerCase:
+                    return value.ToString().ToLower();
+                case Helper.StringCase.UppearCase:
+                    return value.ToString().ToUpper();
+                case Helper.StringCase.Both:
+                    return RandomCase(value);
+            }
+            return value.ToString();
+        }
+        private static string RandomCase(char value)
+        {
+            var state = Numbers.GetRandomNumber(0, 2);
+            if (state == 0)
+            {
+                return Case(value, StringCase.LowerCase);
+            }
+            else
+            {
+                return Case(value, StringCase.UppearCase);
+            }
+        }
+
     }
 }

@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Helper", "Helper\Helper.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelperConsole", "HelperConsole\HelperConsole.csproj", "{8CADFE59-B2B6-4C32-8D4D-FA2B82283F94}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelperTest", "HelperTest\HelperTest.csproj", "{4E1A9403-00EC-414F-B21D-316518934120}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{8CADFE59-B2B6-4C32-8D4D-FA2B82283F94}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8CADFE59-B2B6-4C32-8D4D-FA2B82283F94}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8CADFE59-B2B6-4C32-8D4D-FA2B82283F94}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E1A9403-00EC-414F-B21D-316518934120}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E1A9403-00EC-414F-B21D-316518934120}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E1A9403-00EC-414F-B21D-316518934120}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E1A9403-00EC-414F-B21D-316518934120}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
