@@ -10,7 +10,6 @@ namespace Helper
     using Objects;
     public static class Strings
     {
-       
         private static string alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         private static string number = "0123456789";
         private static string symble = @"!@#$%^&*()_+-=*/?{}<>";
@@ -63,17 +62,27 @@ namespace Helper
         {
             return GetRandomString(length, new RandomOptions { Apphabet = true, Number = false, Symble = false, LetterCase = StringCase.Both });
         }
+        public static string GetSpace(int length =4)
+        {
+            var result = new StringBuilder();
+            for (int i = 0; i < length; i++)
+            {
+                result.Append(" ");
+            }
+
+            return result.ToString();
+        }
 
 
         private static string Case(char value, StringCase option)
         {
             switch (option)
             {
-                case Helper.StringCase.LowerCase:
+                case StringCase.LowerCase:
                     return value.ToString().ToLower();
-                case Helper.StringCase.UppearCase:
+                case StringCase.UppearCase:
                     return value.ToString().ToUpper();
-                case Helper.StringCase.Both:
+                case StringCase.Both:
                     return RandomCase(value);
             }
             return value.ToString();
@@ -90,6 +99,7 @@ namespace Helper
                 return Case(value, StringCase.UppearCase);
             }
         }
+
 
     }
 }

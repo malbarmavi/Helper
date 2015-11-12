@@ -15,5 +15,14 @@ namespace HelperTest
             Assert.IsTrue(!Strings.IsNullOrEmptyOrWhiteSpacce("Helper ..."));
             Assert.IsFalse(Strings.IsNullOrEmptyOrWhiteSpacce("Helper ..."));
         }
+        [TestMethod]
+        public void GetSpace()
+        {
+            var space = "    ";
+            var result = Strings.GetSpace();
+
+            Assert.AreEqual(space, result);
+            Assert.AreEqual(space.Length, result.Length);
+        }
     }
 }

@@ -1,7 +1,7 @@
+D:\git\helper\HelperTest\obj\Debug\HelperTest.csprojResolveAssemblyReference.cache
 D:\git\helper\HelperTest\bin\Debug\HelperTest.dll
 D:\git\helper\HelperTest\bin\Debug\HelperTest.pdb
 D:\git\helper\HelperTest\bin\Debug\Helper.dll
 D:\git\helper\HelperTest\bin\Debug\Helper.pdb
-D:\git\helper\HelperTest\obj\Debug\HelperTest.csprojResolveAssemblyReference.cache
 D:\git\helper\HelperTest\obj\Debug\HelperTest.dll
 D:\git\helper\HelperTest\obj\Debug\HelperTest.pdb

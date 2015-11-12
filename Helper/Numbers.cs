@@ -40,6 +40,13 @@ namespace Helper
         {
             return GetRandomNumber(0, max);
         }
-
+        public static int ToInt(this string value)
+        {
+            return Parse<int>(value);
+        }
+        public static Double ToDouble(this string value)
+        {
+            return Parse<double>(value);
+        }
     }
 }
