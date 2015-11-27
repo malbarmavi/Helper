@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,7 +9,7 @@ namespace Helper
 {
     namespace Objects
     {
-        // objets
+       
        public enum StringCase
         {
             LowerCase = 0,
@@ -23,6 +24,17 @@ namespace Helper
             public bool Number { get; set; }
             public StringCase LetterCase { get; set; }
 
+        }
+
+        public class Result
+        {
+            public bool Success { get; set; }
+            public object Data { get; set; }
+            public Result()
+            {
+                Success = false;
+                Data = new object();
+            }
         }
     }
 }

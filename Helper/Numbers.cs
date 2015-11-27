@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Helper
 {
     
-    public static class Numbers
+    public static class Numbers 
     {
         
         public static T Parse<T>(object number)
@@ -21,7 +21,7 @@ namespace Helper
 
                 return (T)Convert.ChangeType("0", typeof(T));
             }
-        }
+        }       
        
         private static readonly Random getRandom = new Random();
         private static readonly object syncLock = new object();
