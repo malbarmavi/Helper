@@ -60,7 +60,7 @@ namespace Helper
         {
             try
             {
-                using (SqlConnection cnn = new SqlConnection())
+                using (SqlConnection cnn = new SqlConnection(connectionString))
                 {
                     cnn.Open();
                     using (SqlCommand cmd = new SqlCommand(sqlStatement, cnn))
@@ -76,17 +76,17 @@ namespace Helper
             }
         }
 
-        public static Result ExecuteScalar(string sqlStatement, string onnetionString)
+        public static Result ExecuteScalar(string sqlStatement, string connectionString)
         {
             var result = new Result();
             try
             {
-                using (SqlConnection cnn = new SqlConnection())
+                using (SqlConnection cnn = new SqlConnection(connectionString))
                 {
                     cnn.Open();
                     using (SqlCommand cmd = new SqlCommand(sqlStatement, cnn))
                     {
-                        result.Data =cmd.ExecuteScalar();
+                        result.Data = cmd.ExecuteScalar();
                         result.Success = true;
                     }
                 }
