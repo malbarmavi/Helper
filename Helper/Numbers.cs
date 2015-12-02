@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Helper
 {
-    
-    public static class Numbers 
+
+    public static class Numbers
     {
-        
+
         public static T Parse<T>(object number)
         {
             try
@@ -21,8 +21,8 @@ namespace Helper
 
                 return (T)Convert.ChangeType("0", typeof(T));
             }
-        }       
-       
+        }
+
         private static readonly Random getRandom = new Random();
         private static readonly object syncLock = new object();
         public static int GetRandomNumber(int min, int max)
@@ -47,6 +47,14 @@ namespace Helper
         public static Double ToDouble(this string value)
         {
             return Parse<double>(value);
+        }
+        public static string ToBinary(int value)
+        {
+            return Convert.ToString(value, 2);
+        }
+        public static string ToHex(int value)
+        {
+            return value.ToString("X");
         }
     }
 }

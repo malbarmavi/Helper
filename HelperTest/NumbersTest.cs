@@ -30,5 +30,17 @@ namespace HelperTest
             Assert.AreEqual(1, Numbers.Parse<int>(.6));
         }
 
+        [TestMethod]
+        public void Binarytest()
+        {
+            Assert.AreEqual("1000", Numbers.ToBinary(8));
+        }
+
+        [TestMethod]
+        public void HexText()
+        {
+            Assert.AreEqual("F", Numbers.ToHex(15));
+        }
+
     }
 }
