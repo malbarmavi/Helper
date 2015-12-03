@@ -5,10 +5,3 @@ D:\git\helper\HelperTest\bin\Debug\Helper.dll
 D:\git\helper\HelperTest\bin\Debug\Helper.pdb
 D:\git\helper\HelperTest\obj\Debug\HelperTest.dll
 D:\git\helper\HelperTest\obj\Debug\HelperTest.pdb
-D:\projects\git\helper\HelperTest\bin\Debug\HelperTest.dll
-D:\projects\git\helper\HelperTest\bin\Debug\HelperTest.pdb
-D:\projects\git\helper\HelperTest\bin\Debug\Helper.dll
-D:\projects\git\helper\HelperTest\bin\Debug\Helper.pdb
-D:\projects\git\helper\HelperTest\obj\Debug\HelperTest.csprojResolveAssemblyReference.cache
-D:\projects\git\helper\HelperTest\obj\Debug\HelperTest.dll
-D:\projects\git\helper\HelperTest\obj\Debug\HelperTest.pdb

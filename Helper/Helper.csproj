@@ -43,6 +43,7 @@
     <Compile Include="Cryptography.cs" />
     <Compile Include="Dates.cs" />
     <Compile Include="DataBase.cs" />
+    <Compile Include="Info.cs" />
     <Compile Include="Objects.cs" />
     <Compile Include="Strings.cs" />
     <Compile Include="Numbers.cs" />
