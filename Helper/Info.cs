@@ -27,6 +27,43 @@ namespace Helper
 
 
     }
+
+    public class UsersAccounts
+    {
+
+    }
+    public class SystemAccounts
+    {
+
+
+    }
+
+    public class Groups
+    {
+
+    }
+
+    public class CPU
+    {
+
+    }
+
+    public class Memory
+    {
+
+    }
+    //disk drive
+    public class StorageDrives
+    {
+
+    }
+
+    public class DiskPartions { }
+    public class LogicalDisks { }
+    public class MotherBoard { }
+    public class BIOS { }
+
+
     public static class SysyemInfo
     {
         public static List<OperatingSystem> GetOperatingSystems()
