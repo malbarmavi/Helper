@@ -28,8 +28,8 @@ namespace HelperConsole
 
             //wl(Helper.Cryptography.GetRandomNumber());
             //wl(Helper.Cryptography.generateMD5("123456"));
-            
-            
+
+            var os = Helper.SysyemInfo.GetOperatingSystems();
             Console.ReadKey();
         }
 
