@@ -30,6 +30,7 @@ namespace HelperConsole
             //wl(Helper.Cryptography.generateMD5("123456"));
 
             var os = Helper.SysyemInfo.GetOperatingSystems();
+            var user = Helper.SysyemInfo.GetUserAccounts();
             Console.ReadKey();
         }
 

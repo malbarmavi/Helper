@@ -30,7 +30,18 @@ namespace Helper
 
     public class UsersAccounts
     {
-
+        public string Name { get; set; }
+        public string AcountType { get; set; }
+        public string Description { get; set; }
+        public string Disabled { get; set; }
+        public string LocalAccount { get; set; }
+        public string Lockout { get; set; }
+        public string PasswordChangeable { get; set; }
+        public string PasswordExpires { get; set; }
+        public string PasswordRequired { get; set; }
+        public string SecuirtyIdentifier { get; set; }
+        public string SecuirtyIdentiferType { get; set; }
+        public string Status { get; set; }
     }
     public class SystemAccounts
     {
@@ -81,7 +92,7 @@ namespace Helper
                 os.Architecture = GetValue(managmentObj.Properties["Caption"].Value).Equals("64-bit") ? "64-bit Operating System " : "32-bit Operating System";
                 os.InstallDate = GetDate(managmentObj.Properties["InstallDate"].Value);
                 os.LastRestart = GetDate(managmentObj.Properties["LastBootUpTime"].Value);
-                os.ProductType = GetValue(managmentObj.Properties["ProductType"].Value, GetProductType); 
+                os.ProductType = GetValue(managmentObj.Properties["ProductType"].Value, GetProductType);
                 os.PrimaryOS = GetValue(managmentObj.Properties["Primary"].Value) == "True" ? "Yes" : "No";
                 os.SerialNumber = GetValue(managmentObj.Properties["SerialNumber"].Value);
                 os.RegisteredUser = GetValue(managmentObj.Properties["RegisteredUser"].Value);
@@ -95,7 +106,33 @@ namespace Helper
             }
             return result;
         }
+        public static List<UsersAccounts> GetUserAccounts()
+        {
+            var result = new List<UsersAccounts>();
+            ManagementObjectSearcher managmentSearcher = new ManagementObjectSearcher("select * from Win32_UserAccount");
+            foreach (ManagementObject managmentObj in managmentSearcher.Get())
+            {
+                var userAccount = new UsersAccounts();
+                userAccount.Name = GetValue(managmentObj.Properties["Name"].Value);
+                userAccount.AcountType = GetValue(managmentObj.Properties["AccountType"].Value, GetAccontType);
+                userAccount.Description = GetValue(managmentObj.Properties["Description"].Value);
+                userAccount.Disabled = GetValue(managmentObj.Properties["Disabled"].Value);
+                userAccount.LocalAccount = GetValue(managmentObj.Properties["LocalAccount"].Value);
+                userAccount.Lockout = GetValue(managmentObj.Properties["Lockout"].Value);
+                userAccount.PasswordChangeable = GetValue(managmentObj.Properties["PasswordChangeable"].Value);
+                userAccount.PasswordExpires = GetValue(managmentObj.Properties["PasswordExpires"].Value);
+                userAccount.PasswordRequired = GetValue(managmentObj.Properties["PasswordRequired"].Value);
+                userAccount.SecuirtyIdentifier = GetValue(managmentObj.Properties["SID"].Value);
+                userAccount.SecuirtyIdentiferType = GetValue(managmentObj.Properties["SIDType"].Value, GetSecurityIdentiferType);
+                userAccount.Status = GetValue(managmentObj.Properties["Status"].Value);
 
+
+                result.Add(userAccount);
+            }
+
+
+            return result;
+        }
         private static string GetValue(object value)
         {
             try
@@ -165,6 +202,70 @@ namespace Helper
         {
             return (type == "1") ? "Work Station" : (type == "2") ? "Domain Controller" : (type == "3") ? "Server" : " ";
         }
+        private static string GetAccontType(string type)
+        {
+            string result = string.Empty;
 
+            switch (type)
+            {
+                case "256":
+                    result = "Temp Duplicate AccountT";
+                    break;
+                case "512":
+                    result = "Normal Account";
+                    break;
+                case "2048":
+                    result = "Interdomain Trust Account";
+                    break;
+                case "4096":
+                    result = "Workstation Trust Account";
+                    break;
+                case "8192":
+                    result = "Server Trust account";
+                    break;
+
+                default:
+                    break;
+            }
+            return result;
+        }
+        private static string GetSecurityIdentiferType(string type)
+        {
+            string result = String.Empty;
+            switch (type)
+            {
+                case "1":
+                    result = "User";
+                    break;
+                case "2":
+                    result = "Group";
+                    break;
+                case "3":
+                    result = "Domain";
+                    break;
+                case "4":
+                    result = "Alias";
+                    break;
+                case "5":
+                    result = "Well Known Group";
+                    break;
+                case "6":
+                    result = "Deleted Account";
+                    break;
+                case "7":
+                    result = "Invalid";
+                    break;
+                case "8":
+                    result = "Unknown";
+                    break;
+                case "9":
+                    result = "Computer";
+                    break;
+            }
+            return result;
+        }
     }
+
+
 }
+
