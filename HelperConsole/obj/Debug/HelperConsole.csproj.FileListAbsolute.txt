@@ -1,8 +1,0 @@
-D:\projects\git\helper\HelperConsole\bin\Debug\HelperConsole.exe.config
-D:\projects\git\helper\HelperConsole\bin\Debug\HelperConsole.exe
-D:\projects\git\helper\HelperConsole\bin\Debug\HelperConsole.pdb
-D:\projects\git\helper\HelperConsole\bin\Debug\Helper.dll
-D:\projects\git\helper\HelperConsole\bin\Debug\Helper.pdb
-D:\projects\git\helper\HelperConsole\obj\Debug\HelperConsole.csprojResolveAssemblyReference.cache
-D:\projects\git\helper\HelperConsole\obj\Debug\HelperConsole.exe
-D:\projects\git\helper\HelperConsole\obj\Debug\HelperConsole.pdb

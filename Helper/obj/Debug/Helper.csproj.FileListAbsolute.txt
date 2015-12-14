@@ -1,5 +1,0 @@
-D:\projects\git\helper\Helper\bin\Debug\Helper.dll
-D:\projects\git\helper\Helper\bin\Debug\Helper.pdb
-D:\projects\git\helper\Helper\obj\Debug\Helper.csprojResolveAssemblyReference.cache
-D:\projects\git\helper\Helper\obj\Debug\Helper.dll
-D:\projects\git\helper\Helper\obj\Debug\Helper.pdb
