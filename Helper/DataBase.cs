@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
-using Helper.Objects;
+using Helper.Model;
 
 namespace Helper
 {
@@ -33,31 +33,32 @@ namespace Helper
 
         }
 
-        public static DataTable GetData(string sqlStatement, string connetionString)
+        public static Result<DataTable> GetData(string sqlStatement, string connetionString)
         {
-            var result = new DataTable();
+            var result = new Result<DataTable>();
             try
             {
                 using (SqlConnection cnn = new SqlConnection(connetionString))
                 {
                     using (SqlDataAdapter da = new SqlDataAdapter(sqlStatement, cnn))
                     {
-                        da.Fill(result);
+                        da.Fill(result.Data);
                     }
                 }
-
+                result.State = true;
                 return result;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
+                result.ExceptionData = ex;
                 return result;
             }
 
         }
 
-        public static bool ExecuteNonQuery(string sqlStatement, string connectionString)
+        public static Result<object> ExecuteNonQuery(string sqlStatement, string connectionString)
         {
+
             try
             {
                 using (SqlConnection cnn = new SqlConnection(connectionString))
@@ -67,18 +68,27 @@ namespace Helper
                     {
                         cmd.ExecuteNonQuery();
                     }
+                    cnn.Close();
                 }
-                return true;
+                return new Result<object>()
+                {
+                    State = true
+                };
+
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return false;
+                return new Result<object>
+                {
+                    State = false,
+                    ExceptionData = ex
+                };
             }
         }
 
-        public static Result ExecuteScalar(string sqlStatement, string connectionString)
+        public static Result<object> ExecuteScalar(string sqlStatement, string connectionString)
         {
-            var result = new Result();
+            var result = new Result<object>();
             try
             {
                 using (SqlConnection cnn = new SqlConnection(connectionString))
@@ -87,13 +97,15 @@ namespace Helper
                     using (SqlCommand cmd = new SqlCommand(sqlStatement, cnn))
                     {
                         result.Data = cmd.ExecuteScalar();
-                        result.Success = true;
+                        result.State = true;
                     }
+                    cnn.Close();
                 }
                 return result;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                result.ExceptionData = ex;
                 return result;
             }
 

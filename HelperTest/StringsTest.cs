@@ -9,11 +9,11 @@ namespace HelperTest
         [TestMethod]
         public void IsNullOrEmptyOrWhiteSpace()
         {
-            Assert.IsTrue(Strings.IsNullOrEmptyOrWhiteSpacce(null));
-            Assert.IsTrue(Strings.IsNullOrEmptyOrWhiteSpacce(string.Empty));
-            Assert.IsTrue(Strings.IsNullOrEmptyOrWhiteSpacce("  "));
-            Assert.IsTrue(!Strings.IsNullOrEmptyOrWhiteSpacce("Helper ..."));
-            Assert.IsFalse(Strings.IsNullOrEmptyOrWhiteSpacce("Helper ..."));
+            Assert.IsFalse(Strings.IsValidString(null));
+            Assert.IsFalse(Strings.IsValidString(string.Empty));
+            Assert.IsFalse(Strings.IsValidString("  "));
+            Assert.IsTrue(Strings.IsValidString("Helper ..."));
+
         }
         [TestMethod]
         public void GetSpace()

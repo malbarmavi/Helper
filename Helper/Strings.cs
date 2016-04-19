@@ -7,32 +7,27 @@ using System.Threading.Tasks;
 namespace Helper
 {
 
-    using Objects;
+    using Model;
     public static class Strings
     {
-        private static string alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        private static string number = "0123456789";
-        private static string symble = @"!@#$%^&*()_+-=*/?{}<>";
+        private readonly static string alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        private readonly static string numbers = "0123456789";
+        private readonly static string symbles = @"!@#$%^&*()_+-=*/?{}<>";
 
-        public static bool IsNullOrEmptyOrWhiteSpacce(this string value)
+        public static bool IsValidString(this string value)
         {
-            var result = false;
-            try
+
+
+            if (string.IsNullOrEmpty(value) || string.IsNullOrWhiteSpace(value))
             {
-                if (value == null || String.IsNullOrEmpty(value) || String.IsNullOrWhiteSpace(value))
-                {
-                    result = true;
-                }
+                return false;
             }
-            catch (Exception)
-            {
-                result = true;
-            }
-            return result;
+
+            return true;
         }
         public static string GetRandomString(int length, RandomOptions options)
         {
-            var result = String.Empty;
+            var result = string.Empty;
 
             if (options.Apphabet == true)
             {
@@ -41,12 +36,12 @@ namespace Helper
 
             if (options.Symble == true)
             {
-                result += symble;
+                result += symbles;
             }
 
             if (options.Number == true)
             {
-                result += number;
+                result += numbers;
             }
             var stringCounts = result.Length;
             var sb = new StringBuilder();
@@ -59,10 +54,9 @@ namespace Helper
             return sb.ToString();
         }
         public static string GetRandomString(int length = 26)
-        {
-            return GetRandomString(length, new RandomOptions { Apphabet = true, Number = false, Symble = false, LetterCase = StringCase.Both });
-        }
-        public static string GetSpace(int length =4)
+            => GetRandomString(length,
+                new RandomOptions { Apphabet = true, Number = false, Symble = false, LetterCase = StringCase.Both });
+        public static string GetSpace(int length = 4)
         {
             var result = new StringBuilder();
             for (int i = 0; i < length; i++)
@@ -72,8 +66,6 @@ namespace Helper
 
             return result.ToString();
         }
-
-
         private static string Case(char value, StringCase option)
         {
             switch (option)

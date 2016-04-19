@@ -29,9 +29,19 @@ namespace HelperConsole
             //wl(Helper.Cryptography.GetRandomNumber());
             //wl(Helper.Cryptography.generateMD5("123456"));
 
-            var os = Helper.SysyemInfo.GetOperatingSystems();
-            var user = Helper.SysyemInfo.GetUserAccounts();
+            //foreach (var item in new int[] { 1, 2, 3, 4, 5, 6 })
+            //{
+            //    Console.Write("-");
+            //    System.Threading.Thread.Sleep(1000);
+            //}
+
+            var os = SystemInfo.GetOperatingSystems();
+            var user = SystemInfo.GetUserAccounts();
+            var sysuser = SystemInfo.GetSystemAccounts();
+            var userGroups = SystemInfo.GetUsersGroups();
+            var cpu = SystemInfo.GetCPU();
             Console.ReadKey();
+
         }
 
         static void w(string message)
