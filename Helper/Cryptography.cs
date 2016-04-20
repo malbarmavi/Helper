@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Text;
 using System.Security.Cryptography;
 
@@ -20,7 +21,7 @@ namespace Helper
             {
                 hash = md5.ComputeHash(Encoding.ASCII.GetBytes(value));
             }
-            return GetResult(hash);
+            return hash.Select(x => x.ToString("x2")).Aggregate((x, y) => $"{x}{y}");
 
         }
 
@@ -37,7 +38,7 @@ namespace Helper
             }
 
 
-            return GetResult(hash);
+            return hash.Select(x => x.ToString("x2")).Aggregate((x, y) => $"{x}{y}");
 
         }
 
@@ -52,7 +53,7 @@ namespace Helper
             {
                 hash = sha1.ComputeHash(Encoding.ASCII.GetBytes(value));
             }
-            return GetResult(hash);
+            return hash.Select(x => x.ToString("x2")).Aggregate((x, y) => $"{x}{y}");
 
         }
 
@@ -68,7 +69,7 @@ namespace Helper
             {
                 hash = sha1.ComputeHash(Encoding.ASCII.GetBytes(value));
             }
-            return GetResult(hash);
+            return hash.Select(x => x.ToString("x2")).Aggregate((x, y) => $"{x}{y}");
 
         }
 
@@ -84,7 +85,7 @@ namespace Helper
             {
                 hash = sha1.ComputeHash(Encoding.ASCII.GetBytes(value));
             }
-            return GetResult(hash);
+            return hash.Select(x => x.ToString("x2")).Aggregate((x, y) => $"{x}{y}");
 
         }
 
@@ -99,15 +100,15 @@ namespace Helper
         //    }         
         //    return result;
         //}
-
-        private static string GetResult(byte[] hash)
-        {
-            var result = string.Empty;
-            for (int i = 0; i < hash.Length; i++)
-            {
-                result += hash[i].ToString("x2");
-            }
-            return result;
-        }
+        //[Obsolete]
+        //private static string GetResult(byte[] hash)
+        //{
+        //    var result = string.Empty;
+        //    for (int i = 0; i < hash.Length; i++)
+        //    {
+        //        result += hash[i].ToString("x2");
+        //    }
+        //    return result;
+        //}
     }
 }

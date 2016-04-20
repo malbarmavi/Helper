@@ -7,7 +7,7 @@ namespace HelperTest
     public class StringsTest
     {
         [TestMethod]
-        public void IsNullOrEmptyOrWhiteSpace()
+        public void IsValidString()
         {
             Assert.IsFalse(Strings.IsValidString(null));
             Assert.IsFalse(Strings.IsValidString(string.Empty));
