@@ -1,15 +1,11 @@
-﻿using System;
-using System.Linq;
-using System.Text;
+﻿using System.Linq;
 using System.Security.Cryptography;
-
+using System.Text;
 
 namespace Helper
 {
     public static class Cryptography
     {
-
-
         public static string GenerateMD5(string value)
         {
             byte[] hash;
@@ -21,8 +17,7 @@ namespace Helper
             {
                 hash = md5.ComputeHash(Encoding.ASCII.GetBytes(value));
             }
-            return hash.Select(x => x.ToString("x2")).Aggregate((x, y) => $"{x}{y}");
-
+            return hash.Select(c => c.ToString("x2")).Aggregate((partialSum, item) => $"{partialSum}{item}");
         }
 
         public static string GenerateSHA1(string value)
@@ -36,10 +31,7 @@ namespace Helper
             {
                 hash = sha1.ComputeHash(Encoding.ASCII.GetBytes(value));
             }
-
-
-            return hash.Select(x => x.ToString("x2")).Aggregate((x, y) => $"{x}{y}");
-
+            return hash.Select(c => c.ToString("x2")).Aggregate((partialSum, item) => $"{partialSum}{item}");
         }
 
         public static string GenerateSHA256(string value)
@@ -53,10 +45,8 @@ namespace Helper
             {
                 hash = sha1.ComputeHash(Encoding.ASCII.GetBytes(value));
             }
-            return hash.Select(x => x.ToString("x2")).Aggregate((x, y) => $"{x}{y}");
-
+            return hash.Select(c => c.ToString("x2")).Aggregate((partialSum, item) => $"{partialSum}{item}");
         }
-
 
         public static string GenerateSHA384(string value)
         {
@@ -69,10 +59,8 @@ namespace Helper
             {
                 hash = sha1.ComputeHash(Encoding.ASCII.GetBytes(value));
             }
-            return hash.Select(x => x.ToString("x2")).Aggregate((x, y) => $"{x}{y}");
-
+            return hash.Select(c => c.ToString("x2")).Aggregate((partialSum, item) => $"{partialSum}{item}");
         }
-
 
         public static string GenerateSHA512(string value)
         {
@@ -85,8 +73,7 @@ namespace Helper
             {
                 hash = sha1.ComputeHash(Encoding.ASCII.GetBytes(value));
             }
-            return hash.Select(x => x.ToString("x2")).Aggregate((x, y) => $"{x}{y}");
-
+            return hash.Select(c => c.ToString("x2")).Aggregate((partialSum, item) => $"{partialSum}{item}");
         }
 
         //public static string GetRandomNumber()
@@ -97,7 +84,7 @@ namespace Helper
         //    foreach(var i in d)
         //    {
         //        result += i.ToString("D");
-        //    }         
+        //    }
         //    return result;
         //}
         //[Obsolete]

@@ -33,6 +33,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Management" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -45,6 +46,7 @@
     <Compile Include="Dates.cs" />
     <Compile Include="DataBase.cs" />
     <Compile Include="Extenstion.cs" />
+    <Compile Include="Json.cs" />
     <Compile Include="Model\SystemInfo\BIOS.cs" />
     <Compile Include="Model\SystemInfo\CPU.cs" />
     <Compile Include="Model\SystemInfo\DiskDrive.cs" />

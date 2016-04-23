@@ -12,7 +12,6 @@ namespace Helper
         {
             var result = new List<OperatingSystem>();
             ManagementObjectSearcher managmentSearcher = new ManagementObjectSearcher("select * from Win32_OperatingSystem");
-
             foreach (ManagementObject managmentObj in managmentSearcher.Get())
             {
                 var os = new OperatingSystem();
@@ -35,6 +34,7 @@ namespace Helper
             }
             return result;
         }
+
         public static List<UsersAccounts> GetUserAccounts()
         {
             var result = new List<UsersAccounts>();
@@ -54,14 +54,11 @@ namespace Helper
                 userAccount.SecuirtyIdentifier = GetValue(managmentObj.Properties["SID"].Value);
                 userAccount.SecuirtyIdentiferType = GetValue(managmentObj.Properties["SIDType"].Value, SecurityIdentiferTypeFormater);
                 userAccount.Status = GetValue(managmentObj.Properties["Status"].Value);
-
-
                 result.Add(userAccount);
             }
-
-
             return result;
         }
+
         public static List<SystemAccounts> GetSystemAccounts()
         {
             var result = new List<SystemAccounts>();
@@ -97,7 +94,6 @@ namespace Helper
                     result.Add(userGroup);
                 }
             }
-
             return result;
         }
 
@@ -108,7 +104,6 @@ namespace Helper
             foreach (ManagementObject managmentObj in managmentSearcher.Get())
             {
                 var cpu = new CPU();
-
                 cpu.Name = GetValue(managmentObj.Properties["Name"].Value);
                 cpu.AddressWidth = GetValue(managmentObj.Properties["AddressWidth"].Value);
                 cpu.Architecture = GetValue(managmentObj.Properties["Architecture"].Value);
@@ -129,50 +124,56 @@ namespace Helper
                 cpu.ProcessorType = GetValue(managmentObj.Properties["ProcessorType"].Value);
                 cpu.Revision = GetValue(managmentObj.Properties["Revision"].Value);
                 cpu.SocketDesignation = GetValue(managmentObj.Properties["SocketDesignation"].Value);
-
                 result.Add(cpu);
-
             }
             return result;
         }
+
+        public static List<Memory> GetMemory()
+        {
+            var result = new List<Memory>();
+            ManagementObjectSearcher managmentSearcher = new ManagementObjectSearcher("select * from Win32_PhysicalMemory");
+            foreach (ManagementObject managmentObj in managmentSearcher.Get())
+            {
+                Memory memory = new Memory();
+                memory.BankLabel = GetValue(managmentObj.Properties[""]);
+            }
+            return result;
+        }
+
         private static string GetValue(object value)
         {
             try
             {
                 return Convert.ToString(value);
-
             }
             catch (Exception)
             {
                 return "";
-
             }
         }
+
         private static DateTime? GetDate(object value)
         {
-
             var date = GetValue(value);
             if (date.IsValidString())
             {
                 return ManagementDateTimeConverter.ToDateTime(date);
             }
-
             return null;
         }
+
         private static string GetValue(object value, Func<string, string> ResultFormater)
         {
             var result = GetValue(value);
-
             if (result != string.Empty)
             {
                 result = ResultFormater(result);
             }
-
             return result;
         }
 
-
-        // Formater Section 
+        // Formater Section
         private static string OSTypeFormater(string type)
         {
             var result = string.Empty;
@@ -181,48 +182,58 @@ namespace Helper
                 case "14":
                     result = "MS-DOS";
                     break;
+
                 case "15":
                     result = "Windows 3x";
                     break;
+
                 case "16":
                     result = "Windows 95";
                     break;
+
                 case "17":
                     result = "Windows 98";
                     break;
+
                 case "18":
                     result = "Windows NT";
                     break;
+
                 case "19":
                     result = "Windows CE";
                     break;
+
                 default:
                     result = "";
                     break;
-
             }
             return result;
         }
+
         private static string ProductFormater(string type)
             => (type == "1") ? "Work Station" : (type == "2") ? "Domain Controller" : (type == "3") ? "Server" : " ";
+
         private static string AccontTypeFormater(string type)
         {
             string result = string.Empty;
-
             switch (type)
             {
                 case "256":
                     result = "Temp Duplicate AccountT";
                     break;
+
                 case "512":
                     result = "Normal Account";
                     break;
+
                 case "2048":
                     result = "Interdomain Trust Account";
                     break;
+
                 case "4096":
                     result = "Workstation Trust Account";
                     break;
+
                 case "8192":
                     result = "Server Trust account";
                     break;
@@ -232,6 +243,7 @@ namespace Helper
             }
             return result;
         }
+
         private static string SecurityIdentiferTypeFormater(string type)
         {
             string result = String.Empty;
@@ -240,39 +252,46 @@ namespace Helper
                 case "1":
                     result = "User";
                     break;
+
                 case "2":
                     result = "Group";
                     break;
+
                 case "3":
                     result = "Domain";
                     break;
+
                 case "4":
                     result = "Alias";
                     break;
+
                 case "5":
                     result = "Well Known Group";
                     break;
+
                 case "6":
                     result = "Deleted Account";
                     break;
+
                 case "7":
                     result = "Invalid";
                     break;
+
                 case "8":
                     result = "Unknown";
                     break;
+
                 case "9":
                     result = "Computer";
                     break;
             }
             return result;
         }
+
         private static string SpeedFormater(string speed) => $"{double.Parse(speed) / 1000} GHz";
+
         private static string KBFormater(string size) => $"{size} Kb";
+
         private static string MBFormater(string size) => $"{double.Parse(size) / 1024} Mb";
-
     }
-
-
 }
-

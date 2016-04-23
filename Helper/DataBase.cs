@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Helper.Model;
+using System;
 using System.Data;
 using System.Data.SqlClient;
-using Helper.Model;
 
 namespace Helper
 {
@@ -13,7 +9,6 @@ namespace Helper
     {
         public static bool TestConnetionString(string connectionString)
         {
-
             try
             {
                 using (SqlConnection cnn = new SqlConnection(connectionString))
@@ -22,15 +17,11 @@ namespace Helper
                     cnn.Close();
                     return true;
                 }
-
             }
             catch (Exception)
             {
-
                 return false;
             }
-
-
         }
 
         public static Result<DataTable> GetData(string sqlStatement, string connetionString)
@@ -53,12 +44,10 @@ namespace Helper
                 result.ExceptionData = ex;
                 return result;
             }
-
         }
 
         public static Result<object> ExecuteNonQuery(string sqlStatement, string connectionString)
         {
-
             try
             {
                 using (SqlConnection cnn = new SqlConnection(connectionString))
@@ -74,7 +63,6 @@ namespace Helper
                 {
                     State = true
                 };
-
             }
             catch (Exception ex)
             {
@@ -108,12 +96,6 @@ namespace Helper
                 result.ExceptionData = ex;
                 return result;
             }
-
-
-
-
-
         }
-
     }
 }

@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Helper.Model.SystemInfo
 {
@@ -23,7 +19,5 @@ namespace Helper.Model.SystemInfo
         public string SystemDrive { get; set; }
         public string WindowsDirectory { get; set; }
         public string SystemDirectory { get; set; }
-
-
     }
 }

@@ -1,6 +1,6 @@
-﻿using System;
+﻿using Helper;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Helper;
+
 namespace HelperTest
 {
     [TestClass]
@@ -17,6 +17,7 @@ namespace HelperTest
         {
             Assert.AreEqual("7c4a8d09ca3762af61e59520943dc26494f8941b", Cryptography.GenerateSHA1("123456"));
         }
+
         [TestMethod]
         public void SHA256()
         {

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Helper.Model.SystemInfo
+﻿namespace Helper.Model.SystemInfo
 {
     public class BIOS
     {
@@ -22,6 +16,5 @@ namespace Helper.Model.SystemInfo
         public string SMBIOSBIOSVersion { get; set; }
         public string SMBIOSMajorVersion { get; set; }
         public string Version { get; set; }
-
     }
 }

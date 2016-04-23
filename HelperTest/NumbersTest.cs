@@ -1,7 +1,8 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Helper;
+﻿using Helper;
 using Helper.Extention;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+
 namespace HelperTest
 {
     [TestClass]
@@ -12,6 +13,7 @@ namespace HelperTest
         {
             Assert.AreEqual(0, Numbers.Map<int>(null));
         }
+
         [TestMethod]
         public void StringValueToInt()
         {
@@ -20,6 +22,7 @@ namespace HelperTest
             Assert.AreEqual(0, Numbers.Map<int>("1.2"));
             Assert.AreEqual(7, Numbers.Map<int>("7"));
         }
+
         [TestMethod]
         public void DoubleValueToInt()
         {
@@ -51,6 +54,5 @@ namespace HelperTest
             Assert.IsTrue(number.ToInt().IsEven());
             Assert.IsTrue("3".ToInt().IsOdd());
         }
-
     }
 }

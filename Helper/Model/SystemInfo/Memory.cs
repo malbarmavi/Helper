@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Helper.Model.SystemInfo
+﻿namespace Helper.Model.SystemInfo
 {
     public class Memory
     {
@@ -23,6 +17,5 @@ namespace Helper.Model.SystemInfo
         public string Tag { get; set; }
         public string TotalWidth { get; set; }
         public string TypeDetail { get; set; }
-
     }
 }
