@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 using Helper;
 namespace HelperConsole
 {
+    /*
+     Console app to test helper futures and some idea just like a lab .
+         */
     class Program
     {
         static void Main(string[] args)
@@ -30,18 +33,18 @@ namespace HelperConsole
             //var user = SystemInfo.GetUserAccounts();
             //var sysuser = SystemInfo.GetSystemAccounts();
             //var userGroups = SystemInfo.GetUsersGroups();
-            // var cpu = SystemInfo.GetCPU();
+            var cpu = SystemInfo.GetCPU();
+            foreach (var i in cpu)
+            {
 
-
-
-
-
-
-
+                foreach (var p in i.GetType().GetProperties())
+                {
+                    Console.WriteLine($" {FormatName(p.Name).PadRight(25)}: {p.GetValue(i).ToString().PadRight(5)}");
+                }
+            }
 
             Console.ReadKey();
         }
-
 
         static void w(string message)
         {
@@ -50,6 +53,28 @@ namespace HelperConsole
         static void wl(string message)
         {
             Console.WriteLine(message);
+        }
+
+
+        public static string FormatName(string value)
+        {
+            //StringBuilder result = new StringBuilder();
+
+            //foreach (char c in value)
+            //{
+            //    if (char.IsUpper(c))
+            //    {
+            //        result.Append($" {c}");
+            //    }
+            //    else
+            //    {
+            //        result.Append(c);
+            //    }
+            //}
+
+            var s = value.Select(c => char.IsUpper(c) ? $" {c}" : c.ToString()).Aggregate((sum, i) => $"{sum}{i}");
+            return s;
+
         }
     }
 }

@@ -17,11 +17,11 @@ namespace Helper
         {
             try
             {
-                return (T)System.Convert.ChangeType(number, typeof(T));
+                return (T)Convert.ChangeType(number, typeof(T));
             }
             catch (Exception)
             {
-                return (T)System.Convert.ChangeType("0", typeof(T));
+                return default(T);
             }
         }
 

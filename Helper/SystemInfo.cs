@@ -117,7 +117,7 @@ namespace Helper
                 cpu.L2ChacheSize = GetValue(managmentObj.Properties["L2CacheSize"].Value, MBFormater);
                 cpu.L3ChacheSize = GetValue(managmentObj.Properties["L3CacheSize"].Value, MBFormater);
                 cpu.Manufacturer = GetValue(managmentObj.Properties["Manufacturer"].Value);
-                cpu.Speed = GetValue(managmentObj.Properties["MaxClockSpeed"].Value, MBFormater);
+                cpu.Speed = GetValue(managmentObj.Properties["MaxClockSpeed"].Value, SpeedFormater);
                 cpu.Cores = GetValue(managmentObj.Properties["NumberOfCores"].Value);
                 cpu.LogicalProcessor = GetValue(managmentObj.Properties["NumberOfLogicalProcessors"].Value);
                 cpu.ProcessorId = GetValue(managmentObj.Properties["ProcessorId"].Value);
@@ -246,46 +246,38 @@ namespace Helper
 
         private static string SecurityIdentiferTypeFormater(string type)
         {
-            string result = String.Empty;
             switch (type)
             {
                 case "1":
-                    result = "User";
-                    break;
+                    return "User";
 
                 case "2":
-                    result = "Group";
-                    break;
+                    return "Group";
 
                 case "3":
-                    result = "Domain";
-                    break;
+                    return "Domain";
 
                 case "4":
-                    result = "Alias";
-                    break;
+                    return "Alias";
 
                 case "5":
-                    result = "Well Known Group";
-                    break;
+                    return "Well Known Group";
 
                 case "6":
-                    result = "Deleted Account";
-                    break;
+                    return "Deleted Account";
 
                 case "7":
-                    result = "Invalid";
-                    break;
+                    return "Invalid";
 
                 case "8":
-                    result = "Unknown";
-                    break;
+                    return "Unknown";
 
                 case "9":
-                    result = "Computer";
-                    break;
+                    return "Computer";
+
+                default:
+                    return "";
             }
-            return result;
         }
 
         private static string SpeedFormater(string speed) => $"{double.Parse(speed) / 1000} GHz";
