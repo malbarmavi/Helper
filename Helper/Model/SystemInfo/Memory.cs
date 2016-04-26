@@ -2,7 +2,6 @@
 {
     public class Memory
     {
-        public string Name { get; set; }
         public string BankLabel { get; set; }
         public string Capacity { get; set; }
         public string DataWidth { get; set; }

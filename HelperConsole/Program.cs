@@ -33,8 +33,8 @@ namespace HelperConsole
             //var user = SystemInfo.GetUserAccounts();
             //var sysuser = SystemInfo.GetSystemAccounts();
             //var userGroups = SystemInfo.GetUsersGroups();
-            var cpu = SystemInfo.GetCPU();
-            foreach (var i in cpu)
+            var sys = SystemInfo.GetMemory();
+            foreach (var i in sys)
             {
 
                 foreach (var p in i.GetType().GetProperties())

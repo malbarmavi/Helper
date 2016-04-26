@@ -136,7 +136,21 @@ namespace Helper
             foreach (ManagementObject managmentObj in managmentSearcher.Get())
             {
                 Memory memory = new Memory();
-                memory.BankLabel = GetValue(managmentObj.Properties[""]);
+                memory.BankLabel = GetValue(managmentObj.Properties["BankLabel"].Value);
+                memory.Capacity = GetValue(managmentObj.Properties["Capacity"].Value, GBFormater);
+                memory.DataWidth = GetValue(managmentObj.Properties["DataWidth"].Value);
+                memory.DeviceLocator = GetValue(managmentObj.Properties["DeviceLocator"].Value);
+                memory.FormFactor = GetValue(managmentObj.Properties["FormFactor"].Value);
+                memory.InterleaveDataDepth = GetValue(managmentObj.Properties["InterleaveDataDepth"].Value);
+                memory.Manufacturer = GetValue(managmentObj.Properties["Manufacturer"].Value);
+                memory.MemoryType = GetValue(managmentObj.Properties["MemoryType"].Value);
+                memory.PartNumber = GetValue(managmentObj.Properties["PartNumber"].Value);
+                memory.SerialNumber = GetValue(managmentObj.Properties["SerialNumber"].Value);
+                memory.Speed = GetValue(managmentObj.Properties["Speed"].Value);
+                memory.Tag = GetValue(managmentObj.Properties["Tag"].Value);
+                memory.TotalWidth = GetValue(managmentObj.Properties["TotalWidth"].Value);
+                memory.TypeDetail = GetValue(managmentObj.Properties["TypeDetail"].Value);
+                result.Add(memory);
             }
             return result;
         }
@@ -282,8 +296,9 @@ namespace Helper
 
         private static string SpeedFormater(string speed) => $"{double.Parse(speed) / 1000} GHz";
 
-        private static string KBFormater(string size) => $"{size} Kb";
+        private static string KBFormater(string size) => $"{size} KB";
 
-        private static string MBFormater(string size) => $"{double.Parse(size) / 1024} Mb";
+        private static string MBFormater(string size) => $"{double.Parse(size) / 1024} MB";
+        private static string GBFormater(string size) => $"{(double.Parse(size) / 1024 / 1024 / 1024).ToString("#.00") } GB";
     }
 }
