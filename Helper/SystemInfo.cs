@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 using System.Management;
 
@@ -238,6 +239,26 @@ namespace Helper
             return result;
         }
 
+        public static MotherBoard GetMotherBoard()
+        {
+            MotherBoard mb = new MotherBoard();
+            ManagementObjectSearcher managmentSearcher = new ManagementObjectSearcher("select * from win32_baseBoard");
+            ManagementObject managmentObj = managmentSearcher.Get().Cast<ManagementObject>().FirstOrDefault();
+
+            mb.Name = GetValue(managmentObj.Properties["Name"].Value);
+            mb.Description = GetValue(managmentObj.Properties["Description"].Value);
+            mb.HostingBoard = GetValue(managmentObj.Properties["HostingBoard"].Value);
+            mb.HotSwappable = GetValue(managmentObj.Properties["HotSwappable"].Value);
+            mb.Manufacturer = GetValue(managmentObj.Properties["Manufacturer"].Value);
+            mb.PartNumber = GetValue(managmentObj.Properties["PartNumber"].Value);
+            mb.PoweredOn = GetValue(managmentObj.Properties["PoweredOn"].Value);
+            mb.Removable = GetValue(managmentObj.Properties["Removable"].Value);
+            mb.Replaceable = GetValue(managmentObj.Properties["Replaceable"].Value);
+            mb.SerialNumber = GetValue(managmentObj.Properties["SerialNumber"].Value);
+            mb.Version = GetValue(managmentObj.Properties["Version"].Value);
+
+            return mb;
+        }
         #region Methods
 
         private static string GetValue(object value)

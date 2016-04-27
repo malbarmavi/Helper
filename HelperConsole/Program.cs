@@ -48,6 +48,8 @@ namespace HelperConsole
                 Console.Beep();
             }
 
+            Helper.Models.SystemInfo.MotherBoard m = SystemInfo.GetMotherBoard();
+
             Console.ReadKey();
         }
 
