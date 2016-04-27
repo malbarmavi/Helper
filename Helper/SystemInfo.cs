@@ -195,7 +195,7 @@ namespace Helper
             foreach (ManagementObject managmentObj in managmentSearcher.Get())
             {
                 DiskPartition partition = new DiskPartition();
-
+                partition.Name = GetValue(managmentObj.Properties["Name"].Value);
                 partition.BlockSize = GetValue(managmentObj.Properties["BlockSize"].Value);
                 partition.Bootable = GetValue(managmentObj.Properties["Bootable"].Value);
                 partition.BootPartition = GetValue(managmentObj.Properties["BootPartition"].Value);
@@ -212,7 +212,34 @@ namespace Helper
             return result;
         }
 
+        public static List<LogicalDisks> GetLogicalDisks()
+        {
+            List<LogicalDisks> result = new List<LogicalDisks>();
+
+            ManagementObjectSearcher managmentSearcher = new ManagementObjectSearcher("select * from win32_LogicalDisk");
+            foreach (ManagementObject managmentObj in managmentSearcher.Get())
+            {
+                LogicalDisks logicalDisk = new LogicalDisks();
+
+                logicalDisk.Name = GetValue(managmentObj.Properties["Name"].Value);
+                logicalDisk.Access = GetValue(managmentObj.Properties["Access"].Value);
+                logicalDisk.Compressed = GetValue(managmentObj.Properties["Compressed"].Value);
+                logicalDisk.Description = GetValue(managmentObj.Properties["Description"].Value);
+                logicalDisk.DeviceId = GetValue(managmentObj.Properties["DeviceID"].Value);
+                logicalDisk.DriveType = GetValue(managmentObj.Properties["DriveType"].Value, DriverTypeFormatter);
+                logicalDisk.FileSystem = GetValue(managmentObj.Properties["FileSystem"].Value);
+                logicalDisk.FreeSpace = GetValue(managmentObj.Properties["FreeSpace"].Value, GBFormater);
+                logicalDisk.Size = GetValue(managmentObj.Properties["Size"].Value, GBFormater);
+                logicalDisk.VolumeName = GetValue(managmentObj.Properties["VolumeName"].Value);
+                logicalDisk.VolumeSerialNumber = GetValue(managmentObj.Properties["VolumeSerialNumber"].Value);
+
+                result.Add(logicalDisk);
+            }
+            return result;
+        }
+
         #region Methods
+
         private static string GetValue(object value)
         {
             try
@@ -289,33 +316,26 @@ namespace Helper
 
         private static string AccontTypeFormater(string type)
         {
-            string result = string.Empty;
             switch (type)
             {
                 case "256":
-                    result = "Temp Duplicate AccountT";
-                    break;
+                    return "Temp Duplicate AccountT";
 
                 case "512":
-                    result = "Normal Account";
-                    break;
+                    return "Normal Account";
 
                 case "2048":
-                    result = "Interdomain Trust Account";
-                    break;
+                    return "Interdomain Trust Account";
 
                 case "4096":
-                    result = "Workstation Trust Account";
-                    break;
+                    return "Workstation Trust Account";
 
                 case "8192":
-                    result = "Server Trust account";
-                    break;
+                    return "Server Trust account";
 
                 default:
-                    break;
+                    return string.Empty;
             }
-            return result;
         }
 
         private static string SecurityIdentiferTypeFormater(string type)
@@ -365,6 +385,37 @@ namespace Helper
         private static string HddSizeFormater(string size) => $"{(double.Parse(size) / 1000 / 1000 / 1000).ToString("#") } GB";
 
         private static string StringArrayFormater(object value) => (value as string[]) != null ? string.Join(" , ", value) : string.Empty;
-        #endregion
+
+        private static string DriverTypeFormatter(string value)
+        {
+            switch (value)
+            {
+                case "0":
+                    return "Unknown";
+
+                case "1":
+                    return "No Root Directory";
+
+                case "2":
+                    return "Removable Disk";
+
+                case "3":
+                    return "Local Disk";
+
+                case "4":
+                    return "Network Drive";
+
+                case "5":
+                    return "Compact Disc";
+
+                case "6":
+                    return "RAM Disk";
+
+                default:
+                    return string.Empty;
+            }
+        }
+
+        #endregion Methods
     }
 }

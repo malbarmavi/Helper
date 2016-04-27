@@ -33,18 +33,19 @@ namespace HelperConsole
             //var user = SystemInfo.GetUserAccounts();
             //var sysuser = SystemInfo.GetSystemAccounts();
             //var userGroups = SystemInfo.GetUsersGroups();
-            var sys = SystemInfo.GetDiskPartition();
+            var sys = SystemInfo.GetLogicalDisks();
             foreach (var i in sys)
             {
                 foreach (var p in i.GetType().GetProperties())
                 {
-                    if ((p.GetValue(i) as string) != null && p.GetValue(i).ToString().IsValidString())
+                    //(p.GetValue(i) as string) != null &&
+                    if (p.GetValue(i).ToString().IsValidString())
                     {
                         Console.WriteLine($" {FormatName(p.Name).PadRight(25)}: {p.GetValue(i).ToString().PadRight(5)}");
                     }
                 }
-                    Console.WriteLine("");
-                    Console.Beep();
+                Console.WriteLine("");
+                Console.Beep();
             }
 
             Console.ReadKey();
