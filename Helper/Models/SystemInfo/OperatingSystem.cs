@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Helper.Model.SystemInfo
+namespace Helper.Models.SystemInfo
 {
     public class OperatingSystem
     {

@@ -1,4 +1,4 @@
-﻿using Helper.Model;
+﻿using Helper.Models;
 using System;
 using System.Data;
 using System.Data.SqlClient;

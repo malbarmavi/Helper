@@ -1,4 +1,4 @@
-﻿namespace Helper.Model
+﻿namespace Helper.Models
 {
     public enum StringCase
     {

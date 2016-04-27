@@ -4,7 +4,7 @@ using System.Management;
 
 namespace Helper
 {
-    using Model.SystemInfo;
+    using Models.SystemInfo;
 
     public static class SystemInfo
     {
@@ -155,11 +155,44 @@ namespace Helper
             return result;
         }
 
+        public static List<DiskDrive> GetDiskDrives()
+        {
+            List<DiskDrive> result = new List<DiskDrive>();
+
+            ManagementObjectSearcher managmentSearcher = new ManagementObjectSearcher("select * from win32_DiskDrive");
+            foreach (ManagementObject managmentObj in managmentSearcher.Get())
+            {
+                DiskDrive diskDrive = new DiskDrive();
+
+                diskDrive.Availability = GetValue(managmentObj.Properties["Availability"].Value);
+                diskDrive.BytesPerSector = GetValue(managmentObj.Properties["BytesPerSector"].Value);
+                diskDrive.Capability = GetValue(managmentObj.Properties["CapabilityDescriptions"].Value, StringArrayFormater);
+                diskDrive.Caption = GetValue(managmentObj.Properties["Caption"].Value);
+                diskDrive.CompressionMethod = GetValue(managmentObj.Properties["CompressionMethod"].Value);
+                diskDrive.DeviceId = GetValue(managmentObj.Properties["DeviceID"].Value);
+                diskDrive.FirmwareRevision = GetValue(managmentObj.Properties["FirmwareRevision"].Value);
+                diskDrive.InterfaceType = GetValue(managmentObj.Properties["InterfaceType"].Value);
+                diskDrive.MediaLoaded = GetValue(managmentObj.Properties["MediaLoaded"].Value);
+                diskDrive.MediaType = GetValue(managmentObj.Properties["MediaType"].Value);
+                diskDrive.Model = GetValue(managmentObj.Properties["Model"].Value);
+                diskDrive.Name = GetValue(managmentObj.Properties["Name"].Value);
+                diskDrive.Partitions = GetValue(managmentObj.Properties["Partitions"].Value);
+                diskDrive.PnpDeviceId = GetValue(managmentObj.Properties["PNPDeviceID"].Value);
+                diskDrive.SerialNumber = GetValue(managmentObj.Properties["SerialNumber"].Value);
+                diskDrive.Signature = GetValue(managmentObj.Properties["Signature"].Value);
+                diskDrive.Size = GetValue(managmentObj.Properties["Size"].Value, HddSizeFormater);
+                result.Add(diskDrive);
+            }
+
+            return result;
+        }
+
+        #region Methods
         private static string GetValue(object value)
         {
             try
             {
-                return Convert.ToString(value);
+                return Convert.ToString(value) ?? string.Empty;
             }
             catch (Exception)
             {
@@ -186,6 +219,8 @@ namespace Helper
             }
             return result;
         }
+
+        private static string GetValue(object value, Func<object, string> ResultFormater) => ResultFormater(value);
 
         // Formater Section
         private static string OSTypeFormater(string type)
@@ -299,6 +334,12 @@ namespace Helper
         private static string KBFormater(string size) => $"{size} KB";
 
         private static string MBFormater(string size) => $"{double.Parse(size) / 1024} MB";
+
         private static string GBFormater(string size) => $"{(double.Parse(size) / 1024 / 1024 / 1024).ToString("#.00") } GB";
+
+        private static string HddSizeFormater(string size) => $"{(double.Parse(size) / 1000 / 1000 / 1000).ToString("#") } GB";
+
+        private static string StringArrayFormater(object value) => (value as string[]) != null ? string.Join(" , ", value) : string.Empty;
+        #endregion
     }
 }

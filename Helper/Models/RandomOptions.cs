@@ -1,4 +1,4 @@
-﻿namespace Helper.Model
+﻿namespace Helper.Models
 {
     public class RandomOptions
     {

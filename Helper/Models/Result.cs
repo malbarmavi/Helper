@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Helper.Model
+namespace Helper.Models
 {
     public class Result<T>
     {

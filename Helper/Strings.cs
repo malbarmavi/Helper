@@ -2,7 +2,7 @@
 
 namespace Helper
 {
-    using Model;
+    using Models;
 
     public static class Strings
     {
