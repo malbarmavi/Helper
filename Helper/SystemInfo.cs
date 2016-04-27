@@ -187,6 +187,31 @@ namespace Helper
             return result;
         }
 
+        public static List<DiskPartition> GetDiskPartition()
+        {
+            List<DiskPartition> result = new List<DiskPartition>();
+
+            ManagementObjectSearcher managmentSearcher = new ManagementObjectSearcher("select * from win32_DiskPartition");
+            foreach (ManagementObject managmentObj in managmentSearcher.Get())
+            {
+                DiskPartition partition = new DiskPartition();
+
+                partition.BlockSize = GetValue(managmentObj.Properties["BlockSize"].Value);
+                partition.Bootable = GetValue(managmentObj.Properties["Bootable"].Value);
+                partition.BootPartition = GetValue(managmentObj.Properties["BootPartition"].Value);
+                partition.Type = GetValue(managmentObj.Properties["Type"].Value);
+                partition.DeviceId = GetValue(managmentObj.Properties["DeviceID"].Value);
+                partition.DiskIndex = GetValue(managmentObj.Properties["DiskIndex"].Value);
+                partition.Index = GetValue(managmentObj.Properties["Index"].Value);
+                partition.NumberOfBlocks = GetValue(managmentObj.Properties["NumberOfBlocks"].Value);
+                partition.PrimaryPartition = GetValue(managmentObj.Properties["PrimaryPartition"].Value);
+                partition.Size = GetValue(managmentObj.Properties["Size"].Value, GBFormater);
+
+                result.Add(partition);
+            }
+            return result;
+        }
+
         #region Methods
         private static string GetValue(object value)
         {

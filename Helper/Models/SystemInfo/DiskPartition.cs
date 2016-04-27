@@ -7,7 +7,7 @@
         public string Bootable { get; set; }
         public string BootPartition { get; set; }
         public string Type { get; set; }
-        public string DeviceID { get; set; }
+        public string DeviceId { get; set; }
         public string DiskIndex { get; set; }
         public string Index { get; set; }
         public string NumberOfBlocks { get; set; }

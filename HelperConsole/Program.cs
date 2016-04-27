@@ -33,7 +33,7 @@ namespace HelperConsole
             //var user = SystemInfo.GetUserAccounts();
             //var sysuser = SystemInfo.GetSystemAccounts();
             //var userGroups = SystemInfo.GetUsersGroups();
-            var sys = SystemInfo.GetDiskDrives();
+            var sys = SystemInfo.GetDiskPartition();
             foreach (var i in sys)
             {
                 foreach (var p in i.GetType().GetProperties())
@@ -43,6 +43,8 @@ namespace HelperConsole
                         Console.WriteLine($" {FormatName(p.Name).PadRight(25)}: {p.GetValue(i).ToString().PadRight(5)}");
                     }
                 }
+                    Console.WriteLine("");
+                    Console.Beep();
             }
 
             Console.ReadKey();
