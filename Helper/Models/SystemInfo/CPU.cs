@@ -1,6 +1,6 @@
 ﻿namespace Helper.Models.SystemInfo
 {
-    public class CPU
+    public class Cpu
     {
         public string Name { get; set; }
         public string AddressWidth { get; set; }

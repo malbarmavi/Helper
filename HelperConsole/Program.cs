@@ -33,7 +33,7 @@ namespace HelperConsole
             //var user = SystemInfo.GetUserAccounts();
             //var sysuser = SystemInfo.GetSystemAccounts();
             //var userGroups = SystemInfo.GetUsersGroups();
-            var sys = SystemInfo.GetLogicalDisks();
+            var sys = SystemInfo.GetDiskDrives();
             foreach (var i in sys)
             {
                 foreach (var p in i.GetType().GetProperties())
@@ -48,8 +48,16 @@ namespace HelperConsole
                 Console.Beep();
             }
 
-            Helper.Models.SystemInfo.MotherBoard m = SystemInfo.GetMotherBoard();
+            var b = SystemInfo.GetBios();
 
+            foreach (var p in b.GetType().GetProperties())
+            {
+                //(p.GetValue(i) as string) != null &&
+                if (p.GetValue(b).ToString().IsValidString())
+                {
+                    Console.WriteLine($" {FormatName(p.Name).PadRight(25)}: {p.GetValue(b).ToString().PadRight(5)}");
+                }
+            }
             Console.ReadKey();
         }
 

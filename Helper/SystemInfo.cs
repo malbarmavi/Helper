@@ -98,13 +98,13 @@ namespace Helper
             return result;
         }
 
-        public static List<CPU> GetCPU()
+        public static List<Cpu> GetCPU()
         {
-            var result = new List<CPU>();
+            var result = new List<Cpu>();
             ManagementObjectSearcher managmentSearcher = new ManagementObjectSearcher("select * from Win32_Processor");
             foreach (ManagementObject managmentObj in managmentSearcher.Get())
             {
-                var cpu = new CPU();
+                var cpu = new Cpu();
                 cpu.Name = GetValue(managmentObj.Properties["Name"].Value);
                 cpu.AddressWidth = GetValue(managmentObj.Properties["AddressWidth"].Value);
                 cpu.Architecture = GetValue(managmentObj.Properties["Architecture"].Value);
@@ -243,7 +243,7 @@ namespace Helper
         {
             MotherBoard mb = new MotherBoard();
             ManagementObjectSearcher managmentSearcher = new ManagementObjectSearcher("select * from win32_baseBoard");
-            ManagementObject managmentObj = managmentSearcher.Get().Cast<ManagementObject>().FirstOrDefault();
+            ManagementObject managmentObj = managmentSearcher.Get().Cast<ManagementObject>().First();
 
             mb.Name = GetValue(managmentObj.Properties["Name"].Value);
             mb.Description = GetValue(managmentObj.Properties["Description"].Value);
@@ -259,6 +259,32 @@ namespace Helper
 
             return mb;
         }
+
+        public static Bios GetBios()
+        {
+            Bios bios = new Bios();
+            ManagementObjectSearcher managmentSearcher = new ManagementObjectSearcher("select * from win32_BIOS");
+            ManagementObject managmentObj = managmentSearcher.Get().Cast<ManagementObject>().First();
+            bios.Name = GetValue(managmentObj.Properties["Name"].Value);
+            //bios.BIOSVersion = GetValue(managmentObj.Properties["BIOSVersion"].Value, StringArrayFormater);
+            bios.BuildNumber = GetValue(managmentObj.Properties["BuildNumber"].Value);
+            bios.CurrentLanguage = GetValue(managmentObj.Properties["CurrentLanguage"].Value);
+            bios.InstallableLanguages = GetValue(managmentObj.Properties["InstallableLanguages"].Value);
+            bios.ListOfLanguages = GetValue(managmentObj.Properties["ListOfLanguages"].Value);
+            bios.Manufacturer = GetValue(managmentObj.Properties["Manufacturer"].Value);
+            bios.PrimaryBios = GetValue(managmentObj.Properties["PrimaryBIOS"].Value);
+            bios.ReleaseDate = GetDate(managmentObj.Properties["ReleaseDate"].Value).Value.ToString();
+            bios.SerialNumber = GetValue(managmentObj.Properties["SerialNumber"].Value);
+            //bios.BiosVersion = GetValue(managmentObj.Properties["SMBIOSBIOSVersion"].Value);
+            //bios.BiosMajorVersion = GetValue(managmentObj.Properties["SMBIOSMajorVersion"].Value);
+            //bios.BiosMinorVersion = GetValue(managmentObj.Properties["SMBIOSMinorVersion"].Value);
+            bios.Version = $"{GetValue(managmentObj.Properties["Version"].Value)} {GetValue(managmentObj.Properties["SMBIOSBIOSVersion"].Value)}";
+
+            return bios;
+
+        }
+
+
         #region Methods
 
         private static string GetValue(object value)
@@ -405,7 +431,7 @@ namespace Helper
 
         private static string HddSizeFormater(string size) => $"{(double.Parse(size) / 1000 / 1000 / 1000).ToString("#") } GB";
 
-        private static string StringArrayFormater(object value) => (value as string[]) != null ? string.Join(" , ", value) : string.Empty;
+        private static string StringArrayFormater(object value) => (value as string[]) != null ? string.Join(" , ", (value as string[])) : string.Empty;
 
         private static string DriverTypeFormatter(string value)
         {
