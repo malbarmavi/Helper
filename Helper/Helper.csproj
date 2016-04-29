@@ -47,8 +47,8 @@
     <Compile Include="DataBase.cs" />
     <Compile Include="Extenstion.cs" />
     <Compile Include="Json.cs" />
-    <Compile Include="Models\SystemInfo\BIOS.cs" />
-    <Compile Include="Models\SystemInfo\CPU.cs" />
+    <Compile Include="Models\SystemInfo\Bios.cs" />
+    <Compile Include="Models\SystemInfo\Cpu.cs" />
     <Compile Include="Models\SystemInfo\DiskDrive.cs" />
     <Compile Include="Models\SystemInfo\DiskPartition.cs" />
     <Compile Include="Models\SystemInfo\LogicalDisk.cs" />

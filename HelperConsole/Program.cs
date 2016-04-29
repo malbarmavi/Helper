@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 using Helper;
 namespace HelperConsole
 {
+    using Helper.Extention;
     /*
      Console app to test helper futures and some idea just like a lab .
          */
+
     class Program
     {
         static void Main(string[] args)

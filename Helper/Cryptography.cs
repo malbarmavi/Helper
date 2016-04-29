@@ -4,6 +4,8 @@ using System.Text;
 
 namespace Helper
 {
+    using Extention;
+
     public static class Cryptography
     {
         public static string GenerateMD5(string value)

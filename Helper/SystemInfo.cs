@@ -6,6 +6,7 @@ using System.Management;
 namespace Helper
 {
     using Models.SystemInfo;
+    using Extention;
 
     public static class SystemInfo
     {
