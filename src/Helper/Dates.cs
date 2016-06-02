@@ -2,16 +2,16 @@
 
 namespace Helper
 {
-    public static class Dates
+  public static class Dates
+  {
+    public static TimeSpan DatesDifference(DateTime presenttDate, DateTime pastDate)
     {
-        public static TimeSpan DatesDifference(DateTime presenttDate, DateTime pastDate)
-        {
-            if (presenttDate > pastDate)
-            {
-                return (presenttDate - pastDate);
-            }
-            else
-                return new TimeSpan();
-        }
+      if (presenttDate > pastDate)
+      {
+        return (presenttDate - pastDate);
+      }
+      else
+        return new TimeSpan();
     }
+  }
 }
