@@ -45,7 +45,8 @@
     <Compile Include="Cryptography.cs" />
     <Compile Include="Dates.cs" />
     <Compile Include="DataBase.cs" />
-    <Compile Include="Extenstion.cs" />
+    <Compile Include="Extenstion\Numbers.cs" />
+    <Compile Include="Extenstion\Strings.cs" />
     <Compile Include="Json.cs" />
     <Compile Include="Models\SystemInfo\Bios.cs" />
     <Compile Include="Models\SystemInfo\Cpu.cs" />
@@ -66,9 +67,10 @@
     <Compile Include="Numbers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>xcopy $(TargetPath)  $(ProjectDir)\..\..\build /r</PostBuildEvent>
+    <PostBuildEvent>xcopy $(TargetPath)  $(ProjectDir)\..\..\build /r/y</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

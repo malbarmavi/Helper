@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Helper
 {
-  using Extention;
+  using Extenstion;
 
   public static class Cryptography
   {
