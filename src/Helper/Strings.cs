@@ -10,7 +10,7 @@ namespace Helper
     private readonly static string numbers = "0123456789";
     private readonly static string symbles = @"!@#$%^&*()_+-=*/?{}<>";
 
-    public static bool IsValidString(string value)
+    public static bool IsValid(string value)
     {
       if (string.IsNullOrEmpty(value) || string.IsNullOrWhiteSpace(value))
       {

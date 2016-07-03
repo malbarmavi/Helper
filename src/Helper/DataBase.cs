@@ -7,14 +7,13 @@ namespace Helper
 {
   public static class DataBase
   {
-    public static bool TestConnetionString(string connectionString)
+    public static bool TestConnectionString(string connectionString)
     {
       try
       {
         using (SqlConnection cnn = new SqlConnection(connectionString))
         {
           cnn.Open();
-          cnn.Close();
           return true;
         }
       }
@@ -24,12 +23,12 @@ namespace Helper
       }
     }
 
-    public static Result<DataTable> GetData(string sqlStatement, string connetionString)
+    public static Result<DataTable> GetData(string sqlStatement, string connectionString)
     {
       var result = new Result<DataTable>();
       try
       {
-        using (SqlConnection cnn = new SqlConnection(connetionString))
+        using (SqlConnection cnn = new SqlConnection(connectionString))
         {
           using (SqlDataAdapter da = new SqlDataAdapter(sqlStatement, cnn))
           {
@@ -57,7 +56,6 @@ namespace Helper
           {
             cmd.ExecuteNonQuery();
           }
-          cnn.Close();
         }
         return new Result<object>()
         {
@@ -87,7 +85,6 @@ namespace Helper
             result.Data = cmd.ExecuteScalar();
             result.State = true;
           }
-          cnn.Close();
         }
         return result;
       }

@@ -6,6 +6,6 @@ namespace Helper
   {
     public static string Stringify(object obj) => new JavaScriptSerializer().Serialize(obj);
 
-    public static T parse<T>(string obj) => new JavaScriptSerializer().Deserialize<T>(obj);
+    public static T Parse<T>(string obj) => new JavaScriptSerializer().Deserialize<T>(obj);
   }
 }

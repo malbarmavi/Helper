@@ -20,6 +20,9 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>ManagedMinimumRules.ruleset</CodeAnalysisRuleSet>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+    <CodeAnalysisIgnoreGeneratedCode>false</CodeAnalysisIgnoreGeneratedCode>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -42,12 +45,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Cryptography.cs" />
+    <Compile Include="Cryptographyx.cs" />
     <Compile Include="Dates.cs" />
     <Compile Include="DataBase.cs" />
     <Compile Include="Extenstion\Numbers.cs" />
     <Compile Include="Extenstion\Strings.cs" />
     <Compile Include="Json.cs" />
+    <Compile Include="Models\ShaSeries.cs" />
     <Compile Include="Models\SystemInfo\Bios.cs" />
     <Compile Include="Models\SystemInfo\Cpu.cs" />
     <Compile Include="Models\SystemInfo\DiskDrive.cs" />

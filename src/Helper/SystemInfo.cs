@@ -99,7 +99,7 @@ namespace Helper
       return result;
     }
 
-    public static List<Cpu> GetCPU()
+    public static List<Cpu> GetCpu()
     {
       var result = new List<Cpu>();
       ManagementObjectSearcher managmentSearcher = new ManagementObjectSearcher("select * from Win32_Processor");
@@ -301,7 +301,7 @@ namespace Helper
     private static DateTime? GetDate(object value)
     {
       var date = GetValue(value);
-      if (date.IsValidString())
+      if (date.IsValid())
       {
         return ManagementDateTimeConverter.ToDateTime(date);
       }
@@ -311,7 +311,7 @@ namespace Helper
     private static string GetValue(object value, Func<string, string> ResultFormater)
     {
       var result = GetValue(value);
-      if (result != string.Empty)
+      if (Strings.IsValid(result))
       {
         result = ResultFormater(result);
       }
