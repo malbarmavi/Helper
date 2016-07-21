@@ -5,7 +5,7 @@ using Helper.Models;
 namespace Helper
 {
   using Extenstion;
-
+  
   public static class Cryptographyx
   {
 
