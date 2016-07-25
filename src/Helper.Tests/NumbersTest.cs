@@ -2,10 +2,17 @@
 namespace Helper.Tests
 {
 
+  /*
+
+    Popular unit test naming
+    https://dzone.com/articles/7-popular-unit-test-naming
+
+   */
+
   public class NumbersTest
   {
     [Fact]
-    public void ToInt_Given0_shouldReturn0()
+    public void ToInt_Given0_ShouldReturn0()
     {
       // arrange
       int num = 0;
@@ -18,7 +25,7 @@ namespace Helper.Tests
     }
 
     [Fact]
-    public void ToInt_GivenDoubleValue_shouldReturn1()
+    public void ToInt_GivenDoubleValue_ShouldReturn1()
     {
       // arrange
       double num = 1;
@@ -31,7 +38,7 @@ namespace Helper.Tests
     }
 
     [Fact]
-    public void ToInt_GivenDoubleValue_shouldReturn2()
+    public void ToInt_GivenDoubleValue_ShouldReturn2()
     {
       // arrange
       double num = 2;
@@ -43,18 +50,98 @@ namespace Helper.Tests
       Assert.Equal(num, result);
     }
 
-
     [Fact]
-    public void ToInt_GivenNull_shouldReturn0()
+    public void ToInt_GivenNull_ShouldReturn0()
     {
       // arrange
-      double num = 0;
+      int num = 0;
 
       // act
       int result = Numbers.Map<int>(null);
 
       // assert
       Assert.Equal(num, result);
+    }
+
+    [Fact]
+    public void ToInt_GivenTrue_ShouldReturn1()
+    {
+      // arrange
+      int num = 1;
+
+      // act
+      int result = Numbers.Map<int>(true);
+
+      // assert
+      Assert.Equal(num, result);
+    }
+
+    [Fact]
+    public void ToInt_GivenFalse_ShouldReturn0()
+    {
+      // arrange
+      int num = 1;
+
+      // act
+      int result = Numbers.Map<int>(true);
+
+      // assert
+      Assert.Equal(num, result);
+    }
+
+    [Fact]
+    public void ToInt_GivenInValidStringValue_ShouldReturn0()
+    {
+      // arrange
+      int num = 0;
+
+      // act
+      int result = Numbers.Map<int>("Hello");
+
+      // assert
+      Assert.Equal(num, result);
+    }
+
+    [Fact]
+    public void ToInt_GivenValidStringValue10_ShouldReturn10()
+    {
+      // arrange
+      int num = 10;
+
+      // act
+      int result = Numbers.Map<int>("10");
+
+      // assert
+      Assert.Equal(num, result);
+    }
+
+    [Fact]
+    public void ToBinary_Given4_ShouldReturn1000()
+    {
+
+      // arange 
+      string binaryValue = "100";
+
+      // act
+      string result = Numbers.ToBinary(4);
+
+      // assert
+      Assert.Equal(binaryValue, result);
+    }
+
+
+    [Fact]
+    public void ToHex_Given15_ShouldReturnFF()
+    {
+
+      // arange 
+      string hexValue = "F";
+
+      // act
+      string result = Numbers.ToHex(15);
+
+      // assert
+      Assert.Equal(result, hexValue);
     }
 
 
