@@ -144,7 +144,54 @@ namespace Helper.Tests
       Assert.Equal(result, hexValue);
     }
 
+    [Fact]
+    public void IsEven_Given3_ShouldReturnFalse()
+    {
+      // act
+      bool result = Numbers.IsEven(3);
 
+      // assert
+      Assert.False(result);
+      
+    }
 
+    [Fact]
+    public void IsEven_Given2_ShouldReturnTrue()
+    {
+
+      // act
+      bool result = Numbers.IsEven(2);
+
+      // assert
+      Assert.True(result);
+
+    }
+
+    [Fact]
+    public void IsOdd_Given3_ShouldReturnTrue()
+    {
+      // act
+      bool result = Numbers.IsOdd(3);
+
+      // assert
+      Assert.True(result);
+
+    }
+
+    [Fact]
+    public void IsOdd_Given2_ShouldReturnFalse()
+    {
+
+      // act
+      bool result = Numbers.IsOdd(2);
+
+      // assert
+      Assert.False(result);
+
+    }
+
+  
   }
 }
+
+

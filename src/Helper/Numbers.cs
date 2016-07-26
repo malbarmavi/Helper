@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 
 namespace Helper
@@ -13,13 +12,13 @@ namespace Helper
     /// Convert objects to T type
     /// </summary>
     /// <typeparam name="T">Type</typeparam>
-    /// <param name="number">Number</param>
+    /// <param name="value">Value</param>
     /// <returns>T Type</returns>
-    public static T Map<T>(object number)
+    public static T Map<T>(object value)
     {
       try
       {
-        return (T)Convert.ChangeType(number, typeof(T));
+        return (T)Convert.ChangeType(value, typeof(T));
       }
       catch (Exception)
       {
@@ -62,6 +61,9 @@ namespace Helper
       return fibs.ToArray();
     }
 
+    public static bool IsEven(int value) => (value % 2) == 0;
+
+    public static bool IsOdd(int value) => (value % 2) != 0;
 
   }
 }

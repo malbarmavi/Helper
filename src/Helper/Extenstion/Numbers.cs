@@ -1,16 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Helper.Extenstion
 {
   public static partial class Extenstion
   {
-    public static bool IsEven(this int value) => (value % 2) == 0;
 
-    public static bool IsOdd(this int value) => (value % 2) != 0;
 
     public static string ToHex(this int value) => Numbers.ToHex(value);
 
