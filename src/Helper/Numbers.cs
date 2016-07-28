@@ -51,9 +51,11 @@ namespace Helper
     /// </summary>
     /// <param name="maximumValue">Maximum value in the sequence</param>
     /// <returns></returns>
-    public static long[] GetFibonacciSequence(long maximumValue)
+    public static int[] CalcFibonacciSequence(long maximumValue)
     {
-      var fibs = new List<long>();
+      var fibs = new List<int>() { 0, 1 };
+      if (maximumValue == 0) return new int[] { 0 };
+      if (maximumValue == 1) return fibs.ToArray();
       while ((fibs[fibs.Count - 1] + fibs[fibs.Count - 2]) <= maximumValue)
       {
         fibs.Add(fibs[fibs.Count - 1] + fibs[fibs.Count - 2]);

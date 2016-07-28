@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using System.Linq;
+using Xunit;
 namespace Helper.Tests
 {
 
@@ -190,7 +191,48 @@ namespace Helper.Tests
 
     }
 
-  
+    [Fact]
+    public void CalcFibonacciSequence_Given0_ShouldReturn0()
+    {
+      // arange
+      int fib = 0;
+
+      // act
+      int result = Numbers.CalcFibonacciSequence(0).Sum();
+
+      // assert
+      Assert.Equal(fib, result);
+
+    }
+
+    [Fact]
+    public void CalcFibonacciSequence_Given1_ShouldReturn1()
+    {
+      // arange
+      int fibList = 1;
+
+      // act
+      int result = Numbers.CalcFibonacciSequence(1).Sum();
+
+      // assert
+      Assert.Equal(fibList, result);
+
+    }
+
+    [Fact]
+    public void CalcFibonacciSequence_Given2_ShouldReturn2()
+    {
+      // arange
+      int fibList = 4;
+
+      // act
+      int result = Numbers.CalcFibonacciSequence(2).Sum();
+
+      // assert
+      Assert.Equal(fibList, result);
+
+    }
+
   }
 }
 
