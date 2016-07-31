@@ -1,12 +1,12 @@
 # Helper [![Build status](https://ci.appveyor.com/api/projects/status/6p727frslp3x4vtp?svg=true)](https://ci.appveyor.com/project/mbarmawi/helper)
 
-Helper is .net base library create to help developer on common tasks and be a helpful asst to any project.
+Helper is .net base library create to help developers on common and general tasks and be a helpful asst to any project.
 
 Helper contane many function related to :
+ * General numbers functions
  * Numbers conversion
  * Generate random numbers
  * Generate  fibonacci sequence
- * Others like  ToBinary,ToHex,IsEven,IsOdd
  * Shorthand string validation
  * Generate random string 
  * Json stringify,parse functions
@@ -30,7 +30,7 @@ Helper contane many function related to :
   string value = "Hello";
   bool result = Strings.IsValid(value);
   ```
- In addition [Sys](http://github.com/mbarmawi/sys) project build on top of helper and use SystemInfo function.
+ In addition [Sys](http://github.com/mbarmawi/sys) project build on top of helper and use SystemInfo functions.
  
 ##License
  Helper is freely distributable under the terms of the MIT license.
