@@ -31,7 +31,6 @@ namespace Helper
       return await wc.DownloadStringTaskAsync(url);
     }
 
-
     public static string Get(string url)
     {
       WebClient wc = GetWebClient();
@@ -47,9 +46,16 @@ namespace Helper
       return wc.DownloadString(url);
     }
 
-    public static async Task Post(string url)
+    public static async Task PostAsync<T>(string url, T data)
     {
-      throw new NotImplementedException();
+      WebClient wc = GetWebClient();
+      await wc.UploadStringTaskAsync(url, Json.Stringify(data));
+    }
+
+    public static void Post<T>(string url, T data)
+    {
+      WebClient wc = GetWebClient();
+      wc.UploadString(url, Json.Stringify(data));
     }
 
 
