@@ -51,6 +51,7 @@
     <Compile Include="DataBase.cs" />
     <Compile Include="Extenstion\Numbers.cs" />
     <Compile Include="Extenstion\Strings.cs" />
+    <Compile Include="Http.cs" />
     <Compile Include="Json.cs" />
     <Compile Include="Models\ShaSeries.cs" />
     <Compile Include="Models\SystemInfo\Bios.cs" />
