@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Specialized;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
@@ -7,17 +8,43 @@ namespace Helper
 {
   public static class Http
   {
-    public static async Task<string> DownloadString(string url)
+    public static readonly WebClient webClient = GetWebClient();
+
+    public static async Task<string> DownloadStringAsync(string url)
     {
       WebClient wc = GetWebClient();
       return await wc.DownloadStringTaskAsync(url);
     }
 
-    public static async Task<string> Get(string url)
+    public static async Task<string> GetAsync(string url)
     {
       WebClient wc = GetWebClient();
       wc.Headers[HttpRequestHeader.ContentType] = "application/json";
       return await wc.DownloadStringTaskAsync(url);
+    }
+
+    public static async Task<string> GetAsync(string url, NameValueCollection queryString)
+    {
+      WebClient wc = GetWebClient();
+      wc.QueryString = queryString;
+      wc.Headers[HttpRequestHeader.ContentType] = "application/json";
+      return await wc.DownloadStringTaskAsync(url);
+    }
+
+
+    public static string Get(string url)
+    {
+      WebClient wc = GetWebClient();
+      wc.Headers[HttpRequestHeader.ContentType] = "application/json";
+      return wc.DownloadString(url);
+    }
+
+    public static string Get(string url, NameValueCollection queryString)
+    {
+      WebClient wc = GetWebClient();
+      wc.QueryString = queryString;
+      wc.Headers[HttpRequestHeader.ContentType] = "application/json";
+      return wc.DownloadString(url);
     }
 
     public static async Task Post(string url)
