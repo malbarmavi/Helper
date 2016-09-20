@@ -93,9 +93,9 @@ namespace Helper
     /// <param name="sqlStatement">sql query</param>
     /// <param name="connectionString">sqlserer connection string</param>
     /// <returns></returns>
-    public static Result<object> ExecuteScalar(string sqlStatement, string connectionString)
+    public static Result<T> ExecuteScalar<T>(string sqlStatement, string connectionString)
     {
-      var result = new Result<object>();
+      var result = new Result<T>();
       try
       {
         using (SqlConnection cnn = new SqlConnection(connectionString))
@@ -103,7 +103,7 @@ namespace Helper
           cnn.Open();
           using (SqlCommand cmd = new SqlCommand(sqlStatement, cnn))
           {
-            result.Data = cmd.ExecuteScalar();
+            result.Data = Utility.Map<T>(cmd.ExecuteScalar());
             result.State = true;
           }
         }

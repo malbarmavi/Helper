@@ -8,23 +8,6 @@ namespace Helper
     private static readonly Random randomNumber = new Random();
     private static readonly object syncLock = new object();
 
-    /// <summary>
-    /// Convert objects to T type
-    /// </summary>
-    /// <typeparam name="T">Type</typeparam>
-    /// <param name="value">Value</param>
-    /// <returns>T Type</returns>
-    public static T Map<T>(object value)
-    {
-      try
-      {
-        return (T)Convert.ChangeType(value, typeof(T));
-      }
-      catch (Exception)
-      {
-        return default(T);
-      }
-    }
 
     public static int GetRandomNumber(int min, int max)
     {
@@ -38,9 +21,9 @@ namespace Helper
 
     public static int GetRandomNumber(int max) => GetRandomNumber(0, max);
 
-    public static int ToInt(string value) => Map<int>(value);
+    public static int ToInt(string value) => Utility.Map<int>(value);
 
-    public static double ToDouble(string value) => Map<double>(value);
+    public static double ToDouble(string value) => Utility.Map<double>(value);
 
     public static string ToBinary(int value) => Convert.ToString(value, 2);
 

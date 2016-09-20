@@ -8,9 +8,9 @@ namespace Helper.Extenstion
 
     public static double ToDouble(this string value) => Numbers.ToDouble(value);
 
-    public static bool ToBool(this string value) => Numbers.Map<bool>(value);
+    public static bool ToBool(this string value) => Utility.Map<bool>(value);
 
-    public static DateTime ToDateTime(this string value) => Numbers.Map<DateTime>(value);
+    public static DateTime ToDateTime(this string value) => Utility.Map<DateTime>(value);
 
     public static bool IsValid(this string value) => Strings.IsValid(value);
 

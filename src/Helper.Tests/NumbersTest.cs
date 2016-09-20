@@ -19,7 +19,7 @@ namespace Helper.Tests
       int num = 0;
 
       // act
-      int result = Numbers.Map<int>(0);
+      int result = Utility.Map<int>(0);
 
       // assert
       Assert.Equal(num, result);
@@ -32,7 +32,7 @@ namespace Helper.Tests
       double num = 1;
 
       // act
-      int result = Numbers.Map<int>(1.2);
+      int result = Utility.Map<int>(1.2);
 
       // assert
       Assert.Equal(num, result);
@@ -45,7 +45,7 @@ namespace Helper.Tests
       double num = 2;
 
       // act
-      int result = Numbers.Map<int>(1.5);
+      int result = Utility.Map<int>(1.5);
 
       // assert
       Assert.Equal(num, result);
@@ -58,7 +58,7 @@ namespace Helper.Tests
       int num = 0;
 
       // act
-      int result = Numbers.Map<int>(null);
+      int result = Utility.Map<int>(null);
 
       // assert
       Assert.Equal(num, result);
@@ -71,7 +71,7 @@ namespace Helper.Tests
       int num = 1;
 
       // act
-      int result = Numbers.Map<int>(true);
+      int result = Utility.Map<int>(true);
 
       // assert
       Assert.Equal(num, result);
@@ -84,7 +84,7 @@ namespace Helper.Tests
       int num = 1;
 
       // act
-      int result = Numbers.Map<int>(true);
+      int result = Utility.Map<int>(true);
 
       // assert
       Assert.Equal(num, result);
@@ -97,7 +97,7 @@ namespace Helper.Tests
       int num = 0;
 
       // act
-      int result = Numbers.Map<int>("Hello");
+      int result = Utility.Map<int>("Hello");
 
       // assert
       Assert.Equal(num, result);
@@ -110,7 +110,7 @@ namespace Helper.Tests
       int num = 10;
 
       // act
-      int result = Numbers.Map<int>("10");
+      int result = Utility.Map<int>("10");
 
       // assert
       Assert.Equal(num, result);
@@ -153,7 +153,7 @@ namespace Helper.Tests
 
       // assert
       Assert.False(result);
-      
+
     }
 
     [Fact]
