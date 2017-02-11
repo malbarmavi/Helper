@@ -50,5 +50,14 @@ namespace Helper
 
     public static bool IsOdd(int value) => (value % 2) != 0;
 
+    /// <summary>
+    /// Get decimal number with fixed number after zero depend on the length parameter
+    /// </summary>
+    /// <param name="value"></param>
+    /// <param name="length"></param>
+    /// <returns></returns>
+    public static double ToFixed (double value, int length = 0) => Math.Truncate(value * Math.Pow(10, length)) / Math.Pow(10, length);
+
+
   }
 }

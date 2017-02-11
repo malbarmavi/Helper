@@ -4,8 +4,6 @@ namespace Helper.Extenstion
 {
   public static partial class Extenstion
   {
-
-
     public static string ToHex(this int value) => Numbers.ToHex(value);
 
     public static string ToBinary(this int value) => Numbers.ToBinary(value);
@@ -25,6 +23,8 @@ namespace Helper.Extenstion
         action(i);
       }
     }
+
+    public static double ToFixed ( this double value, int length = 0 ) => Numbers.ToFixed(value, length);
   }
 
 }
