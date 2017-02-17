@@ -246,7 +246,7 @@ namespace Helper.Tests
       // assert
       Assert.Equal(value, result);
     }
-
+    [Fact]
     public void ToFixed_GivenPi_ReturnPiWith2PrecisionLength()
     {
       // arange
@@ -259,7 +259,7 @@ namespace Helper.Tests
       Assert.Equal(value, result);
     }
 
-
+    [Fact]
     public void ToFixed_GivenPi_ReturnPiWith4PrecisionLength()
     {
       // arange
