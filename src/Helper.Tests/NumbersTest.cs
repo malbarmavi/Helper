@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Xunit;
 namespace Helper.Tests
 {
@@ -233,6 +234,43 @@ namespace Helper.Tests
 
     }
 
+    [Fact]
+    public void ToFixed_GivenPi_ShouldReturn3()
+    {
+      // arange
+      double value = 3d;
+
+      // act
+      double result = Numbers.ToFixed(Math.PI);
+
+      // assert
+      Assert.Equal(value, result);
+    }
+
+    public void ToFixed_GivenPi_ReturnPiWith2PrecisionLength()
+    {
+      // arange
+      double value = 3d;
+
+      // act
+      double result = Numbers.ToFixed(Math.PI,2);
+
+      // assert
+      Assert.Equal(value, result);
+    }
+
+
+    public void ToFixed_GivenPi_ReturnPiWith4PrecisionLength()
+    {
+      // arange
+      double value = 3d;
+
+      // act
+      double result = Numbers.ToFixed(Math.PI,4) ;
+
+      // assert
+      Assert.Equal(value, result);
+    }
   }
 }
 
