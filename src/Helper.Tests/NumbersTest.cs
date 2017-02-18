@@ -250,7 +250,7 @@ namespace Helper.Tests
     public void ToFixed_GivenPi_ReturnPiWith2PrecisionLength()
     {
       // arange
-      double value = 3d;
+      double value = 3.14d;
 
       // act
       double result = Numbers.ToFixed(Math.PI,2);
@@ -263,7 +263,7 @@ namespace Helper.Tests
     public void ToFixed_GivenPi_ReturnPiWith4PrecisionLength()
     {
       // arange
-      double value = 3d;
+      double value = 3.1415d;
 
       // act
       double result = Numbers.ToFixed(Math.PI,4) ;
