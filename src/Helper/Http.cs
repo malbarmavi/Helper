@@ -3,7 +3,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Helper
+namespace Helper.Web
 {
   public static class Http
   {

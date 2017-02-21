@@ -2,7 +2,8 @@
 using System.Security.Cryptography;
 using System.Text;
 using Helper.Models;
-namespace Helper
+
+namespace Helper.Cryptography
 {
   using Extenstion;
   

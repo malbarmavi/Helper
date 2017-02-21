@@ -1,4 +1,5 @@
-﻿using Helper.Models;
+﻿using Helper.Cryptography;
+using Helper.Models;
 using Xunit;
 
 namespace Helper.Tests

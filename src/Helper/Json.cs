@@ -1,6 +1,6 @@
 ﻿using System.Web.Script.Serialization;
 
-namespace Helper
+namespace Helper.Web
 {
   public static class Json
   {
