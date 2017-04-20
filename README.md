@@ -32,5 +32,5 @@ Helper contane many function related to :
   ```
  In addition [Sys](http://github.com/mbarmawi/sys) project build on top of helper and use SystemInfo functions.
  
-##License
+## License
  Helper is freely distributable under the terms of the MIT license.
